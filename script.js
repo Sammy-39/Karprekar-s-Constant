@@ -22,11 +22,11 @@ function checkNum(){
         }
 
         opGroupElement.innerHTML = "<p> ------------ Iteration Steps ------------</p>"
-        displayKpConstant(value,genRan());
+        displayKpConstant(value);
     }
 }
 
-function displayKpConstant(num,ranNum){
+function displayKpConstant(num){
             
     var maxNum = num.split("").sort((x,y)=>{return y-x}).join("")
     var minNum = num.split("").sort((x,y)=>{return x-y}).join("")
@@ -40,7 +40,7 @@ function displayKpConstant(num,ranNum){
     document.querySelector(".outputGroup").append(paraElement)
     diff = parseInt(maxNum) - parseInt(minNum)
 
-    if(diff !== ranNum && diff!== 0 && count<8){
+    if(diff !== 6174 && diff!== 0 && count<8){
         displayKpConstant(diff.toString())  
     }
     else if(diff===0 || count===8){
@@ -51,18 +51,4 @@ function displayKpConstant(num,ranNum){
     }
            
     return;
-}
-
-var rnum;
-
-function genRan(){
-
-    rnum = Math.floor(Math.random()*(9999-1000)+1000).toString()
-
-    if((new Set(rnum.split(""))).size !== rnum.length){
-        genRan();
-    }
-
-    console.log(rnum)
-    return rnum;
 }
